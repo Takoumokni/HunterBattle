@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Hunter.css"> 
+    <title>Hunter Fight Predictor System</title>
+    <
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚔️ Hunter Fight Predictor System</h1>
+            <p>Rule-Based Combat Simulator with Nen Type Advantages</p>
+        </div>
+
+        <div class="fighters-grid">
+            <!-- Fighter 1 -->
+            <div class="fighter-panel fighter1">
+                <div class="panel-header">
+                    <div class="panel-title">Fighter 1</div>
+                </div>
+
+                <div class="input-group">
+                    <label>Fighter ID</label>
+                    <input type="number" id="f1-id" placeholder="Enter fighter ID" value="1" min="1">
+                </div>
+
+                <div class="input-group">
+                    <label>Name</label>
+                    <input type="text" id="f1-name" placeholder="Enter fighter name" value="Gon">
+                </div>
+
+                <div class="input-group">
+                    <label>Nen Type</label>
+                    <select id="f1-nenType">
+                        <option value="Enhancer">Enhancer</option>
+                        <option value="Transmuter">Transmuter</option>
+                        <option value="Emitter">Emitter</option>
+                        <option value="Conjurer">Conjurer</option>
+                        <option value="Manipulator">Manipulator</option>
+                        <option value="Specialist">Specialist</option>
+                    </select>
+                    <div class="nen-info" id="f1-nen-info"></div>
+                </div>
+
+                <div class="presets-section">
+                    <h4>Quick Presets</h4>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" onclick="loadPreset(1, 'gon')">Gon</button>
+                        <button class="preset-btn" onclick="loadPreset(1, 'killua')">Killua</button>
+                        <button class="preset-btn" onclick="loadPreset(1, 'kurapika')">Kurapika</button>
+                        <button class="preset-btn" onclick="loadPreset(1, 'netero')">Netero</button>
+                    </div>
+                </div>
+
+                <h4 style="margin: 20px 0 15px; color: #667eea;">Base Stats</h4>
+                <div class="stats-grid">
+                    <div class="stat-slider">
+                        <label>
+                            <span>Strength</span>
+                            <span class="stat-value" id="f1-strength-val">50</span>
+                        </label>
+                        <input type="range" id="f1-strength" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="stat-slider">
+                        <label>
+                            <span>Speed</span>
+                            <span class="stat-value" id="f1-speed-val">50</span>
+                        </label>
+                        <input type="range" id="f1-speed" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="stat-slider">
+                        <label>
+                            <span>Durability</span>
+                            <span class="stat-value" id="f1-durability-val">50</span>
+                        </label>
+                        <input type="range" id="f1-durability" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="stat-slider">
+                        <label>
+                            <span>Intelligence</span>
+                            <span class="stat-value" id="f1-intelligence-val">50</span>
+                        </label>
+                        <input type="range" id="f1-intelligence" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="stat-slider">
+                        <label>
+                            <span>Aura Capacity</span>
+                            <span class="stat-value" id="f1-auraCapacity-val">50</span>
+                        </label>
+                        <input type="range" id="f1-auraCapacity" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="stat-slider">
+                        <label>
+                            <span>Aura Control</span>
+                            <span class="stat-value" id="f1-auraControl-val">50</span>
+                        </label>
+                        <input type="range" id="f1-auraControl" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="stat-slider">
+                        <label>
+                            <span>Experience</span>
+                            <span class="stat-value" id="f1-experience-val">50</span>
+                        </label>
+                        <input type="range" id="f1-experience" min="0" max="100" value="50">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fighter 2 -->
+            <div class="fighter-panel fighter2">
+                <div class="panel-header">
+                    <div class="panel-title">Fighter 2</div>
+                </div>
+
+                <div class="input-group">
+                    <label>Fighter ID</label>
+                    <input type="number" id="f2-id" placeholder="Enter fighter ID" value="2" min="1">
+                </div>
+
+                <div class="input-group">
+                    <label>Name</label>
+                    <input type="text" id="f2-name" placeholder="Enter fighter name" value="Hisoka">
+                </div>
+
+                <div class="input-group">
+                    <label>Nen Type</label>
+                    <select id="f2-nenType">
+                        <option value="Enhancer">Enhancer</option>
+                        <option value="Transmuter" selected>Transmuter</option>
+                        <option value="Emitter">Emitter</option>
+                        <option value="Conjurer">Conjurer</option>
+                        <option value="Manipulator">Manipulator</option>
+                        <option value="Specialist">Specialist</option>
+                    </select>
+                    <div class="nen-info" id="f2-nen-info"></div>
+                </div>
+
+                <div class="presets-section">
+                    <h4>Quick Presets</h4>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" onclick="loadPreset(2, 'hisoka')">Hisoka</button>
+                        <button class="preset-btn" onclick="loadPreset(2, 'chrollo')">Chrollo</button>
+                        <button class="preset-btn" onclick="loadPreset(2, 'meruem')">Meruem</button>
+                        <button class="preset-btn" onclick="loadPreset(2, 'pitou')">Pitou</button>
+                    </div>
+                </div>
+
+                <h4 style="margin: 20px 0 15px; color: #f093fb;">Base Stats</h4>
+                <div class="stats-grid">
+                    <div class="stat-slider">
+                        <label>
+                            <span>Strength</span>
+                            <span class="stat-value" id="f2-strength-val">50</span>
+                        </label>
+                        <input type="range" id="f2-strength" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="stat-slider">
+                        <label>
+                            <span>Speed</span>
+                            <span class="stat-value" id="f2-speed-val">50</span>
+                        </label>
+                        <input type="range" id="f2-speed" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="stat-slider">
+                        <label>
+                            <span>Durability</span>
+                            <span class="stat-value" id="f2-durability-val">50</span>
+                        </label>
+                        <input type="range" id="f2-durability" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="stat-slider">
+                        <label>
+                            <span>Intelligence</span>
+                            <span class="stat-value" id="f2-intelligence-val">50</span>
+                        </label>
+                        <input type="range" id="f2-intelligence" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="stat-slider">
+                        <label>
+                            <span>Aura Capacity</span>
+                            <span class="stat-value" id="f2-auraCapacity-val">50</span>
+                        </label>
+                        <input type="range" id="f2-auraCapacity" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="stat-slider">
+                        <label>
+                            <span>Aura Control</span>
+                            <span class="stat-value" id="f2-auraControl-val">50</span>
+                        </label>
+                        <input type="range" id="f2-auraControl" min="0" max="100" value="50">
+                    </div>
+
+                    <div class="stat-slider">
+                        <label>
+                            <span>Experience</span>
+                            <span class="stat-value" id="f2-experience-val">50</span>
+                        </label>
+                        <input type="range" id="f2-experience" min="0" max="100" value="50">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="simulateFight()">⚔️ Simulate Fight</button>
+            <button class="btn btn-secondary" onclick="resetFighters()">🔄 Reset</button>
+        </div>
+
+        <div id="results" class="results-section hidden"></div>
+    </div>
+
+    <script src="Hunter.js">      
+    </script>
+</body>
+</html>
